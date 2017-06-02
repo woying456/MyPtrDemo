@@ -13,7 +13,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class XListViewFooter extends LinearLayout {
+import in.srain.cube.views.ptr.indicator.PtrIndicator;
+
+public class XListViewFooter extends LinearLayout implements PtrUIHandler{
     public final static int STATE_NORMAL = 0;
     public final static int STATE_READY = 1;
     public final static int STATE_LOADING = 2;
@@ -131,4 +133,32 @@ public class XListViewFooter extends LinearLayout {
         layoutParams.rightMargin = 0;
     }
 
+    @Override
+    public void onUIReset(PtrFrameLayout frame) {
+
+    }
+
+    @Override
+    public void onUIRefreshPrepare(PtrFrameLayout frame) {
+        mHintView.setVisibility(View.VISIBLE);
+        mHintView.setText("松开载入更多");
+    }
+
+    @Override
+    public void onUIRefreshBegin(PtrFrameLayout frame) {
+        mHintView.setVisibility(View.INVISIBLE);
+        mProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onUIRefreshComplete(PtrFrameLayout frame, boolean isHeader) {
+        mProgressBar.setVisibility(View.INVISIBLE);
+        mHintView.setVisibility(View.VISIBLE);
+        mHintView.setText("查看更多");
+    }
+
+    @Override
+    public void onUIPositionChange(PtrFrameLayout frame, boolean isUnderTouch, byte status, PtrIndicator ptrIndicator) {
+
+    }
 }

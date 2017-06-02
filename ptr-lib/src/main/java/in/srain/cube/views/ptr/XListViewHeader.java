@@ -32,12 +32,13 @@ public class XListViewHeader extends LinearLayout implements PtrUIHandler {
 
     private final int ROTATE_ANIM_DURATION = 180;
 
-    public final static int STATE_NORMAL = 0;
-    public final static int STATE_READY = 1;
+    public final static int STATE_NORMAL     = 0;
+    public final static int STATE_READY      = 1;
     public final static int STATE_REFRESHING = 2;
-    public final static int STATE_OK = 3;
+    public final static int STATE_OK         = 3;
 
-    private View line;
+    private View    line;
+    private boolean mShouldShowLastUpdate;
 
     public XListViewHeader(Context context) {
         super(context);
@@ -54,12 +55,9 @@ public class XListViewHeader extends LinearLayout implements PtrUIHandler {
     }
 
     private void initView(Context context) {
-        // 初始情况，设置下拉刷新view高度为0
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LayoutParams.MATCH_PARENT, 0);
         mContainer = (LinearLayout) LayoutInflater.from(context).inflate(
                 R.layout.xlistview_header, null);
-        addView(mContainer, lp);
+        addView(mContainer);
         setGravity(Gravity.BOTTOM);
 
         mArrowImageView = (ImageView) findViewById(R.id.xlistview_header_arrow);
@@ -152,26 +150,77 @@ public class XListViewHeader extends LinearLayout implements PtrUIHandler {
 
     @Override
     public void onUIReset(PtrFrameLayout frame) {
-
+        hideRotateView();
+        mProgressBar.setVisibility(INVISIBLE);
     }
 
     @Override
     public void onUIRefreshPrepare(PtrFrameLayout frame) {
+        mProgressBar.setVisibility(INVISIBLE);
 
+        mArrowImageView.setVisibility(VISIBLE);
+        mArrowImageView.setImageResource(R.drawable.arrow_down);
+        mHintTextView.setText("下拉刷新");
     }
 
     @Override
     public void onUIRefreshBegin(PtrFrameLayout frame) {
+        hideRotateView();
+        mProgressBar.setVisibility(VISIBLE);
+        mHintTextView.setText("正在加载");
 
     }
 
     @Override
     public void onUIRefreshComplete(PtrFrameLayout frame, boolean isHeader) {
+        if (!isHeader) {
+            return;
+        }
+        mArrowImageView.setVisibility(VISIBLE);
+        mArrowImageView.setImageResource(R.drawable.arrow_ok);
+        mProgressBar.setVisibility(INVISIBLE);
 
+        mHintTextView.setText("刷新成功");
     }
 
     @Override
     public void onUIPositionChange(PtrFrameLayout frame, boolean isUnderTouch, byte status, PtrIndicator ptrIndicator) {
 
+        final int mOffsetToRefresh = frame.getOffsetToRefresh();
+        final int currentPos = ptrIndicator.getCurrentPosY();
+        final int lastPos = ptrIndicator.getLastPosY();
+
+        if (currentPos < mOffsetToRefresh && lastPos >= mOffsetToRefresh) {
+            if (isUnderTouch && status == PtrFrameLayout.PTR_STATUS_PREPARE) {
+                crossRotateLineFromBottomUnderTouch(frame);
+                if (mArrowImageView != null) {
+                    mArrowImageView.clearAnimation();
+                    mArrowImageView.startAnimation(mRotateDownAnim);
+                }
+            }
+        } else if (currentPos > mOffsetToRefresh && lastPos <= mOffsetToRefresh) {
+            if (isUnderTouch && status == PtrFrameLayout.PTR_STATUS_PREPARE) {
+                crossRotateLineFromTopUnderTouch(frame);
+                if (mArrowImageView != null) {
+                    mArrowImageView.clearAnimation();
+                    mArrowImageView.startAnimation(mRotateUpAnim);
+                }
+            }
+        }
+    }
+
+    private void crossRotateLineFromTopUnderTouch(PtrFrameLayout frame) {
+        if (!frame.isPullToRefresh()) {
+            mHintTextView.setText("松开刷新");
+        }
+    }
+
+    private void crossRotateLineFromBottomUnderTouch(PtrFrameLayout frame) {
+        mHintTextView.setText("下拉刷新");
+    }
+
+    private void hideRotateView() {
+        mArrowImageView.clearAnimation();
+        mArrowImageView.setVisibility(INVISIBLE);
     }
 }

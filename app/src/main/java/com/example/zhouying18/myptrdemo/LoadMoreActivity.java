@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
+import in.srain.cube.views.ptr.util.TimeUtil;
 
 public class LoadMoreActivity extends AppCompatActivity {
 
@@ -35,16 +36,23 @@ public class LoadMoreActivity extends AppCompatActivity {
     private void initEvents() {
         ptrFrameLayout.setPtrHandler(new PtrDefaultHandler2() {
             @Override
-            public void onLoadMoreBegin(PtrFrameLayout frame) {
-                setDatas(datas.size());
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                ptrFrameLayout.setMode(PtrFrameLayout.Mode.REFRESH);
+                ptrFrameLayout.setRefreshTime(TimeUtil.getCurrentDateTimeShortString());
+                datas.clear();
+                setDatas(0);
                 adapter.addAll(datas);
                 frame.refreshComplete();
             }
 
             @Override
-            public void onRefreshBegin(PtrFrameLayout frame) {
-                datas.clear();
-                setDatas(0);
+            public void onLoadMoreBegin(PtrFrameLayout frame) {
+                int size = datas.size();
+                if (size <= 60) {
+                    frame.setMode(PtrFrameLayout.Mode.BOTH);
+                    return;
+                }
+                setDatas(size);
                 adapter.addAll(datas);
                 frame.refreshComplete();
             }
@@ -72,5 +80,8 @@ public class LoadMoreActivity extends AppCompatActivity {
         adapter = new LoadMoreAdapter(this, recyclerView);
         recyclerView.setAdapter(adapter);
         ptrFrameLayout = (PtrClassicFrameLayout) findViewById(R.id.ptrFramelayout);
+        ptrFrameLayout.setFooterLineEnable(false);
+        ptrFrameLayout.setMode(PtrFrameLayout.Mode.BOTH);
+        ptrFrameLayout.setRefreshTime(TimeUtil.getCurrentDateTimeShortString());
     }
 }
