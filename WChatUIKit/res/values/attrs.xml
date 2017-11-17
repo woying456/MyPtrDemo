@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <declare-styleable name="NetworkImageView">
-        <attr name="drawShape" format="string"/>
-        <attr name="drawDecorate" format="reference"/>
-        <attr name="drawSideLine" format="reference"/>
-    </declare-styleable>
-
-</resources>

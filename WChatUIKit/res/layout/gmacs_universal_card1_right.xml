@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/style_card_size"
-    android:background="@drawable/wchat_universal_card_msg_right_normal"
-    android:orientation="vertical">
-
-    <include layout="@layout/wchat_universal_card1_layout" />
-</LinearLayout>
