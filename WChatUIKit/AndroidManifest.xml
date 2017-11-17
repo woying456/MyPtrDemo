@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.gmacs">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:theme="@style/GmacsTheme"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name=".album.GmacsAlbumActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".album.GmacsImgDirsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".album.GmacsPhotoBrowserActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activity.GmacsChatActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|locale"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/GmacsTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.GmacsContactDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.GmacsNewFriendsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.GmacsWebViewActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified" />
+        <activity
+            android:name=".album.GmacsImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ImageViewerTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activity.GmacsContactRemarkActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".activity.GmacsBrandServiceListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustResize" />
+        <activity
+            android:name=".activity.GmacsContactReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustUnspecified" />
+        <activity
+            android:name=".activity.GmacsMapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GmacsGroupListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GlobalSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WChatSearchTheme"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".activity.SearchedTalkDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SelectForUserAtActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SelectForChangingOwnerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SearchUserMemberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".album.WChatAlbumsPreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".album.WChatAlbumBrowserActivity"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.WChatFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/wchat_file_path" />
+        </provider>
+    </application>
+
+</manifest>

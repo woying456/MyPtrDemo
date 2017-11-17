@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    style="@style/style_talk_text_content_left"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/gmacs_bg_msg_left"
+    android:textColor="@color/chat_left"/>

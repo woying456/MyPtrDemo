@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="external-image"
+        path="Pictures/newbroker/" />
+    <external-cache-path
+        name="external-cache-image"
+        path="Pictures/newbroker/" />
+    <cache-path
+        name="cache-image"
+        path="Pictures/newbroker/" />
+</paths>

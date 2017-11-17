@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/play_img_layout"
+        style="@style/style_audio_size_left"
+        android:background="@drawable/gmacs_bg_msg_left">
+
+        <ImageView
+            android:id="@+id/play_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/gmacs_ic_left_sound3" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="9dip"
+        android:layout_toRightOf="@id/play_img_layout"
+        android:minLines="1"
+        android:text=""
+        android:textColor="@color/chat_duration_text_color"/>
+
+    <ImageView
+        android:id="@+id/voice_no_read"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9dip"
+        android:layout_toRightOf="@id/play_img_layout"
+        android:background="@drawable/gmacs_ic_voice_noread"
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:id="@+id/left_failed_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dip"
+        android:layout_toRightOf="@id/duration"
+        android:src="@drawable/gmacs_ic_failed_send"
+        android:visibility="gone" />
+
+</RelativeLayout>

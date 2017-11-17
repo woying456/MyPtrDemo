@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gmacs_bg_conversation_list_item"
+    android:drawableLeft="@drawable/wchat_ic_global_search"
+    android:drawablePadding="11dp"
+    android:drawableRight="@drawable/wchat_ic_search_detail_entry"
+    android:paddingBottom="13dp"
+    android:paddingLeft="10.5dp"
+    android:paddingRight="15dp"
+    android:paddingTop="12dp"
+    android:text="查看更多联系人"
+    android:textColor="#808aa5"
+    android:textSize="14dp" />

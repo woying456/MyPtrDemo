@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_card_content_title"
+        style="@style/style_card_msg"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/album_name"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/tv_card_content"
+        style="@style/style_card_msg"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/album_timestamp"
+        android:textSize="13dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="18dp"
+        android:background="@color/card_view" />
+
+    <RelativeLayout
+        android:id="@+id/rl_card_content_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tv_card_content_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wchat_universal_card_content_detail"
+            android:textColor="@color/album_name"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/iv_card_content_detail_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/wchat_ic_search_detail_entry" />
+    </RelativeLayout>
+
+</merge>

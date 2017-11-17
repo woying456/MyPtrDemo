@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.android.gmacs.view.NetworkImageView
+        android:id="@+id/pic"
+        android:layout_width="@dimen/im_chat_msg_pic_msg_width"
+        android:layout_height="@dimen/im_chat_msg_pic_msg_height"
+        android:scaleType="centerCrop"
+        app:drawDecorate="@drawable/gmacs_img_msg_default_left"
+        app:drawSideLine="@drawable/gmacs_bg_talk_view_layer_left_sideline"/>
+</RelativeLayout>

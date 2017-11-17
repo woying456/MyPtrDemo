@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="bottom">
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="75.5dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:textColor="@color/gray_9a9a9a"
+        android:textSize="12dp" />
+
+    <View
+        android:id="@+id/divider1"
+        style="@style/style_gray_line" />
+
+    <TextView
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:textColor="#e64340"
+        android:textSize="18dp" />
+
+    <View
+        android:id="@+id/divider2"
+        style="@style/style_gray_line"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/gray_ebebeb" />
+
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18dp" />
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/album_timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/album_padding"
+        android:layout_marginLeft="@dimen/album_padding"
+        android:layout_marginTop="@dimen/album_timestamp_padding_top"
+        android:includeFontPadding="false"
+        android:textColor="@color/album_timestamp"
+        android:textSize="@dimen/album_timestamp" />
+
+    <include layout="@layout/wchat_album_list_item_image"/>
+
+</LinearLayout>
