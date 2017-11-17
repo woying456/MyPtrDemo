@@ -37,7 +37,6 @@ public class LoadMoreActivity extends AppCompatActivity {
         ptrFrameLayout.setPtrHandler(new PtrDefaultHandler2() {
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-                ptrFrameLayout.setMode(PtrFrameLayout.Mode.REFRESH);
                 ptrFrameLayout.setRefreshTime(TimeUtil.getCurrentDateTimeShortString());
                 datas.clear();
                 setDatas(0);
@@ -48,10 +47,6 @@ public class LoadMoreActivity extends AppCompatActivity {
             @Override
             public void onLoadMoreBegin(PtrFrameLayout frame) {
                 int size = datas.size();
-                if (size <= 60) {
-                    frame.setMode(PtrFrameLayout.Mode.BOTH);
-                    return;
-                }
                 setDatas(size);
                 adapter.addAll(datas);
                 frame.refreshComplete();
