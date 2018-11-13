@@ -66,6 +66,9 @@ public class LoadMoreActivity extends AppCompatActivity {
         for (int i = 0; i < 20; i++) {
             datas.add("此条目是第" + (beginNum + i) + "条");
             System.out.println("hahahah");
+            System.out.println("hahahah");
+            System.out.println("hahahah");
+            System.out.println("hahahah");
         }
     }
 
