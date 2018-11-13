@@ -51,7 +51,7 @@ public class LoadMoreActivity extends AppCompatActivity {
                 setDatas(size);
                 Log.d("zhouying18", "onLoadMoreBegin: hh");
                 adapter.addAll(datas);
-                
+
                 frame.refreshComplete();
             }
         });
@@ -65,6 +65,7 @@ public class LoadMoreActivity extends AppCompatActivity {
     private void setDatas(int beginNum) {
         for (int i = 0; i < 20; i++) {
             datas.add("此条目是第" + (beginNum + i) + "条");
+            System.out.println("hahahah");
         }
     }
 
