@@ -50,6 +50,7 @@ public class LoadMoreActivity extends AppCompatActivity {
                 setDatas(size);
                 adapter.addAll(datas);
                 frame.refreshComplete();
+                
             }
         });
     }
