@@ -51,6 +51,7 @@ public class LoadMoreActivity extends AppCompatActivity {
                 setDatas(size);
                 Log.d("zhouying18", "onLoadMoreBegin: hh");
                 adapter.addAll(datas);
+                
                 frame.refreshComplete();
             }
         });
