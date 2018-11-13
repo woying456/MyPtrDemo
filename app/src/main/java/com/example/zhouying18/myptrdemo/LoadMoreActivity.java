@@ -7,6 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.zhouying18.myptrdemo.adapter.LoadMoreAdapter;
 
@@ -19,7 +20,7 @@ import in.srain.cube.views.ptr.util.TimeUtil;
 
 public class LoadMoreActivity extends AppCompatActivity {
 
-    private RecyclerView          recyclerView;
+    private RecyclerView recyclerView;
     private PtrClassicFrameLayout ptrFrameLayout;
     private LoadMoreAdapter adapter;
     private ArrayList<String> datas = new ArrayList<>();
@@ -48,9 +49,9 @@ public class LoadMoreActivity extends AppCompatActivity {
             public void onLoadMoreBegin(PtrFrameLayout frame) {
                 int size = datas.size();
                 setDatas(size);
+                Log.d("zhouying18", "onLoadMoreBegin: hh");
                 adapter.addAll(datas);
                 frame.refreshComplete();
-                
             }
         });
     }
